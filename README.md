@@ -1,48 +1,27 @@
-# AWS 3-Tier Deployment (Docker + Jenkins CI/CD)
+# AWS 3-Tier Web Application Deployment (Docker + Jenkins CI/CD)
 
-## 📌 Project Overview
-This project demonstrates a simple 3-tier style application deployment using:
+## Overview
+This project demonstrates deploying a simple Flask web application using Docker and automating build/deploy using Jenkins CI/CD.
 
+## Tech Stack
 - Python (Flask)
 - Docker
-- Jenkins CI/CD Pipeline
-- GitHub
+- Jenkins (CI/CD)
+- AWS (concept: 3-tier deployment)
 
-The application is containerized using Docker and automated using a Jenkins pipeline.
+## Files
+- app.py - Flask app
+- requirements.txt - Dependencies
+- Dockerfile - Build container
+- Jenkinsfile - CI/CD pipeline
+- .gitignore - Ignore files
 
----
+## Run Locally
+pip install -r requirements.txt
+python app.py
+Open: http://localhost:5000
 
-## 🏗️ Architecture
-- Application Layer: Flask App
-- Containerization: Docker
-- CI/CD Automation: Jenkins
-- Version Control: Git & GitHub
-
----
-
-## 🚀 How to Run Locally
-
-### 1️⃣ Build Docker Image
-docker build -t aws-3-tier-app .
-
-### 2️⃣ Run Docker Container
-docker run -d -p 5000:5000 aws-3-tier-app
-
-Application runs on:
-http://localhost:5000
-
----
-
-## 🔄 CI/CD Pipeline Stages
-- Clone Repository
-- Build Docker Image
-- Run Docker Container
-
----
-
-## 🛠️ Tools & Technologies Used
-- Python
-- Flask
-- Docker
-- Jenkins
-- GitHub
+## Run with Docker
+docker build -t aws-3-deployment .
+docker run -p 5000:5000 aws-3-deployment
+Open: http://localhost:5000
