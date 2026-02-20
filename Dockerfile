@@ -1,10 +1,11 @@
-from flask import Flask
+FROM python:3.11-slim
 
-app = Flask(_name_)
+WORKDIR /app
 
-@app.route("/")
-def home():
-    return "AWS 3-Tier DevOps Deployment Successful!"
+COPY . /app
 
-if _name_ == "_main_":
-    app.run(host="0.0.0.0", port=5000)
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
