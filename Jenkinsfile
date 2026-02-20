@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+
+        stage('Clone Repository') {
             steps {
-                echo 'Cloning Repository...'
+                git 'https://github.com/Ashishreddy479/aws-3-deployement.git'
             }
         }
 
@@ -14,9 +15,15 @@ pipeline {
             }
         }
 
+        stage('Stop Old Container') {
+            steps {
+                sh 'docker rm -f aws-container || true'
+            }
+        }
+
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 5000:5000 aws-3-tier-app'
+                sh 'docker run -d -p 5000:5000 --name aws-container aws-3-tier-app'
             }
         }
     }
