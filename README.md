@@ -17,9 +17,10 @@ This project demonstrates deploying a simple Flask web application using Docker 
 - .gitignore - Ignore files
 
 ## Run Locally
+
+```bash
 pip install -r requirements.txt
 python app.py
-Open: http://localhost:5000
 
 ## Run with Docker
 docker build -t aws-3-deployment .
